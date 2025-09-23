@@ -26,7 +26,6 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
 
         # 1) if we reached the end of the pattern but not source
         if pind == len(pattern) and sind != len(source):
-            print("pattern too short")
             return None
         # 2) if the current thing in the pattern is a %
         # WARNING: this condition contains the bulk of the code for the assignment
@@ -49,11 +48,9 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
 
         # 3) if we reached the end of the source but not the pattern
         elif pind != len(pattern) and sind == len(source):
-            print("source too short")
             return None
         # 4) if the current thing in the pattern is an _
         elif pattern[pind] == "_":
-            print(source[sind])
             result.append(source[sind])
             pind+=1
             sind+=1
@@ -61,7 +58,6 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
         # 5) if the current thing in the pattern is the same as the current thing in the
         # source
         elif pattern[pind]==source[sind]:
-            print(pattern[pind], source[sind])
             pind+=1
             sind+=1
 
@@ -69,10 +65,7 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
         # indicates the current thing it pattern doesn't match the current thing in
         # source
         else: 
-            print(pattern[pind] + " "+ source[sind])
-            print("no match")
             return None
-    print("successful match")
     return result
 
 
